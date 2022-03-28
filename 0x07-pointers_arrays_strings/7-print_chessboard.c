@@ -1,28 +1,18 @@
 #include "main.h"
-#include <stdio.h>
+
 /**
- * _strstr - function that locates a substring.
- * @haystack: char hello, world
- * @needle: char world
- * Return: Always 0.
+ * print_chessboard - check the code for Holberton School students.
+ * @a:
+ *
  */
-
-char *_strstr(char *haystack, char *needle)
+void print_chessboard(char (*a)[8])
 {
-	unsigned int i = 0;
+	int i, j;
 
-	while (haystack[i] != '\0')
+	for (i = 0; i < 8; i++)
 	{
-		while (*(haystack +  i) != '\0' && *(needle +  i) != '\0'
-				&& haystack[i] == needle[i])
-		{
-			i++;
-		}
-		if (needle[i] == '\0')
-		{
-			return (haystack);
-		}
-		haystack++;
+		for (j = 0; j < 8; j++)
+			_putchar(a[i][j]);
+	_putchar('\n');
 	}
-	return ('\0');
 }

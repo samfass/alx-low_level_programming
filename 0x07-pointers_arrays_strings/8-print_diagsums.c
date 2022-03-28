@@ -1,28 +1,31 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * _strstr - function that locates a substring.
- * @haystack: char hello, world
- * @needle: char world
+ * print_diagsums - function that sets the value of a pointer to a char.
+ * @a: pointer int
+ * @size: int size
+ *
  * Return: Always 0.
  */
-
-char *_strstr(char *haystack, char *needle)
+void print_diagsums(int *a, int size)
 {
-	unsigned int i = 0;
+	int i, j;
+	int vd1 = 0, vd2 = 0, limit = 1;
 
-	while (haystack[i] != '\0')
+	for (i = 0; i < size; i++)
 	{
-		while (*(haystack +  i) != '\0' && *(needle +  i) != '\0'
-				&& haystack[i] == needle[i])
+		for (j = 0; j < size; j++)
 		{
-			i++;
+			if (i == j)
+			{
+				vd1 += *(a + ((i * size) + j));
+			}
+			if ((size - limit) == j)
+			{
+				vd2 += *(a + ((i * size) + j));
+				limit++;
+			}
 		}
-		if (needle[i] == '\0')
-		{
-			return (haystack);
-		}
-		haystack++;
 	}
-	return ('\0');
+	printf("%d, %d\n", vd1, vd2);
 }
