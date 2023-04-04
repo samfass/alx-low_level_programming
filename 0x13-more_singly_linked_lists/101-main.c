@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include "lists.h"
 
+size_t _free_listint_safe(listint_t **);
+
 /**
  * _add_node - Add a node at the beginning of a list
  *
@@ -38,8 +40,8 @@ int main(void)
 	head = NULL;
 	node = _add_node(&head, 9);
 	node->next = _add_node(&head, 6);
-	print_listint_safe(head);
-	n = free_listint_safe(&head);
-	printf("%lu\n%p\n", n, (void *)head);
+	n = print_listint_safe(head);
+	printf("%lu\n", n);
+	_free_listint_safe(&head);
 	return (0);
 }
